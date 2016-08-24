@@ -12,4 +12,90 @@
         <item name="android:windowFullscreen">true</item>
     </style>
 
+    <!-- 最外层LinearLayout的样式 -->
+    <style name="wrap_layout">
+        <item name="android:orientation">vertical</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_marginLeft">8dp</item>
+        <item name="android:layout_marginRight">8dp</item>
+        <item name="android:layout_marginTop">8dp</item>
+        <item name="android:padding">1px</item>
+        <item name="android:background">@drawable/wrap_layot_shape</item>
+
+    </style>
+    <!-- 上圆角的样式 -->
+    <style name="top_layout" parent="base_layout">
+        <item name="android:background">@drawable/top_layout_selector</item>
+    </style>
+    <!-- 无圆角的样式 -->
+    <style name="middle_layout" parent="base_layout">
+        <item name="android:background">@drawable/middle_layout_selector</item>
+    </style>
+    <!-- 下圆角的样式 -->
+    <style name="bottom_layout" parent="base_layout">
+        <item name="android:background">@drawable/bottom_layout_selector</item>
+    </style>
+    <!-- 全圆角的样式 -->
+    <style name="single_layout" parent="base_layout">
+        <item name="android:background">@drawable/single_layout_selector</item>
+    </style>
+    <!-- TextView的样式 -->
+    <style name="setting_name">
+        <item name="android:textSize">16dp</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_weight">1</item>
+    </style>
+    <!-- 公用层的样式 -->
+    <style name="base_layout">
+        <item name="android:orientation">horizontal</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:paddingTop">12dp</item>
+        <item name="android:paddingBottom">12dp</item>
+        <item name="android:paddingLeft">8dp</item>
+        <item name="android:paddingRight">8dp</item>
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:focusable">true</item>
+        <item name="android:clickable">true</item>
+    </style>
+
+    <style name="bg_line">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">1dp</item>
+        <item name="android:background">@color/gray</item>
+    </style>
+
+    <style name="AppTheme.Dark.Dialog" parent="Theme.AppCompat.Dialog">
+        <item name="colorAccent">@color/white</item>
+        <item name="android:textColorPrimary">@color/Aqua</item>
+        <item name="android:background">@color/mainColor</item>
+    </style>
+
+    <style name="UserCenterLayout">
+        <item name="android:clickable">true</item>
+        <item name="android:background">@drawable/bg_ripple</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">@dimen/settingRecHeight</item>
+        <item name="android:padding">8dp</item>
+    </style>
+
+    <style name="UserCenterTvLeft">
+        <item name="android:layout_centerVertical">true</item>
+        <item name="android:textSize">17sp</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginLeft">20dp</item>
+    </style>
+
+    <style name="UserCenterTvRight">
+        <item name="android:layout_alignParentRight">true</item>
+        <item name="android:layout_centerVertical">true</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginRight">20dp</item>
+        <item name="android:textSize">15sp</item>
+    </style>
 </resources>

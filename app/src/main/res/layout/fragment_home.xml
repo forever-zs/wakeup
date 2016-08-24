@@ -1,13 +1,234 @@
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/bitGray"
+    android:orientation="vertical"
+    android:id="@+id/ll_home"
     tools:context="com.wakeup.forever.wakeup.view.fragment.HomeFragment">
 
     <!-- TODO: Update blank fragment layout -->
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="home" />
 
-</FrameLayout>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="100dp">
+        <com.wakeup.forever.wakeup.widget.CircleImageView
+            android:id="@+id/civ_head"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="30dp"
+            android:src="@drawable/head"
+            />
+        <TextView
+            android:id="@+id/tv_grade"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="资深会员"
+            android:textColor="@color/Aqua"
+            android:layout_marginLeft="84dp"
+            android:layout_marginTop="70dp"
+            android:textSize="12sp"
+            android:visibility="invisible"
+            />
+        <TextView
+            android:id="@+id/tv_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="请先点击头像登录"
+            android:textSize="20sp"
+            />
+    </RelativeLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            >
+            <LinearLayout
+                style="@style/wrap_layout">
+                <RelativeLayout
+                    android:id="@+id/rl_userCenter"
+                    style="@style/single_layout">
+
+                    <ImageView
+                        android:layout_width="@dimen/icoSettingSize"
+                        android:layout_height="@dimen/icoSettingSize"
+                        android:src="@drawable/user_center"
+                        android:layout_marginLeft="20dp"
+                        />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="110dp"
+                        android:textSize="20sp"
+                        android:text="个人中心"
+                        />
+                    <ImageView
+                        android:layout_width="@dimen/icoSettingSize"
+                        android:layout_height="@dimen/icoSettingSize"
+                        android:src="@drawable/ic_right"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginRight="30dp"
+                        />
+                </RelativeLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                style="@style/wrap_layout">
+                <RelativeLayout
+                    android:id="@+id/rl_signIn"
+                    style="@style/top_layout">
+
+                    <ImageView
+                        android:layout_width="@dimen/icoSettingSize"
+                        android:layout_height="@dimen/icoSettingSize"
+                        android:src="@drawable/sign_in"
+                        android:layout_marginLeft="20dp"
+                        />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="110dp"
+                        android:textSize="20sp"
+                        android:text="我的签到"
+                        />
+                    <ImageView
+                        android:layout_width="@dimen/icoSettingSize"
+                        android:layout_height="@dimen/icoSettingSize"
+                        android:src="@drawable/ic_right"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginRight="30dp"
+                        />
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/rl_plan"
+                    style="@style/middle_layout">
+
+                    <ImageView
+                        android:layout_width="@dimen/icoSettingSize"
+                        android:layout_height="@dimen/icoSettingSize"
+                        android:src="@drawable/plan"
+                        android:layout_marginLeft="20dp"
+                        />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="110dp"
+                        android:textSize="20sp"
+                        android:text="参与活动"
+                        />
+                    <ImageView
+                        android:layout_width="@dimen/icoSettingSize"
+                        android:layout_height="@dimen/icoSettingSize"
+                        android:src="@drawable/ic_right"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginRight="30dp"
+                        />
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/rl_footMark"
+                    style="@style/bottom_layout">
+
+                    <ImageView
+                        android:layout_width="@dimen/icoSettingSize"
+                        android:layout_height="@dimen/icoSettingSize"
+                        android:src="@drawable/footmark"
+                        android:layout_marginLeft="20dp"
+                        />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="110dp"
+                        android:textSize="20sp"
+                        android:text="我的足迹"
+                        />
+                    <ImageView
+                        android:layout_width="@dimen/icoSettingSize"
+                        android:layout_height="@dimen/icoSettingSize"
+                        android:src="@drawable/ic_right"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginRight="30dp"
+                        />
+                </RelativeLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                style="@style/wrap_layout">
+                <RelativeLayout
+                    android:id="@+id/rl_aboutUs"
+                    style="@style/top_layout">
+
+                    <ImageView
+                        android:layout_width="@dimen/icoSettingSize"
+                        android:layout_height="@dimen/icoSettingSize"
+                        android:src="@drawable/about"
+                        android:layout_marginLeft="20dp"
+                        />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="110dp"
+                        android:textSize="20sp"
+                        android:text="关于我们"
+                        />
+                    <ImageView
+                        android:layout_width="@dimen/icoSettingSize"
+                        android:layout_height="@dimen/icoSettingSize"
+                        android:src="@drawable/ic_right"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginRight="30dp"
+                        />
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/rl_setting"
+                    style="@style/bottom_layout">
+
+                    <ImageView
+                        android:layout_width="@dimen/icoSettingSize"
+                        android:layout_height="@dimen/icoSettingSize"
+                        android:src="@drawable/setting"
+                        android:layout_marginLeft="20dp"
+                        />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="110dp"
+                        android:textSize="20sp"
+                        android:text="设置"
+                        />
+                    <ImageView
+                        android:layout_width="@dimen/icoSettingSize"
+                        android:layout_height="@dimen/icoSettingSize"
+                        android:src="@drawable/ic_right"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginRight="30dp"
+                        />
+                </RelativeLayout>
+            </LinearLayout>
+
+
+        </LinearLayout>
+    </ScrollView>
+
+
+</LinearLayout>

@@ -77,12 +77,11 @@ public class SplashActivityPresenter extends Presenter<SplashActivity>{
         AlphaAnimation alphaAnimation=new AlphaAnimation(0.5f,1f);
         //设置动画时间
         scaleAnimation.setDuration(1000);
-        scaleAnimation.setFillAfter(true);
+        scaleAnimation.setFillAfter(false);
         alphaAnimation.setDuration(2000);
-        alphaAnimation.setFillAfter(true);
         //添加动画
-        set.addAnimation(scaleAnimation);
         set.addAnimation(alphaAnimation);
+
         set.setAnimationListener(new Animation.AnimationListener() {
             @Override
             public void onAnimationStart(Animation animation) {
@@ -100,6 +99,8 @@ public class SplashActivityPresenter extends Presenter<SplashActivity>{
 
             }
         });
+
+
         splashActivity.ivSplash.startAnimation(set);
     }
 }

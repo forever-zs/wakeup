@@ -11,6 +11,7 @@ import com.bumptech.glide.Glide;
 import com.jude.beam.bijection.RequiresPresenter;
 import com.jude.beam.expansion.BeamBaseActivity;
 import com.wakeup.forever.wakeup.R;
+import com.wakeup.forever.wakeup.model.DataManager.ActivityManager;
 import com.wakeup.forever.wakeup.presenter.activityPresenter.SplashActivityPresenter;
 
 import butterknife.Bind;
@@ -31,6 +32,7 @@ public class SplashActivity extends BeamBaseActivity<SplashActivityPresenter> {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        ActivityManager.addActivity(this);
         setContentView(R.layout.activity_splash);
         ButterKnife.bind(this);
         getPresenter().startAnim();
@@ -39,13 +41,13 @@ public class SplashActivity extends BeamBaseActivity<SplashActivityPresenter> {
     public void startMainActivity() {
         Intent i = new Intent(this, MainActivity.class);
         startActivity(i);
+        finish();
     }
 
     public void showView(String imageUrl) {
         Glide.with(this)
                 .load(imageUrl)
-                .centerCrop()
-                .error(R.drawable.wakeup)
+                .error(R.drawable.splash)
                 .crossFade()
                 .into(ivSplash);
         ivWakeup.setVisibility(View.INVISIBLE);

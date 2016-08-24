@@ -5,8 +5,9 @@
     android:layout_height="match_parent"
     android:id="@+id/rl_root"
     tools:context=".view.activity.SplashActivity"
-    android:background="@color/colorPrimaryDark"
+    android:background="@drawable/splash01"
     >
+
 
     <ImageView
         android:id="@+id/iv_splash"
@@ -17,18 +18,18 @@
 
     <ImageView
         android:id="@+id/iv_wakeup"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
+        android:layout_width="300dp"
+        android:layout_height="80dp"
         android:src="@drawable/wakeup"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="100dp"
-        />
+        android:layout_alignBottom="@+id/tv_tips"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
 
     <TextView
         android:id="@+id/tv_tips"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="不辜负每一个清晨"
+        android:text=""
         android:textColor="@color/white"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"

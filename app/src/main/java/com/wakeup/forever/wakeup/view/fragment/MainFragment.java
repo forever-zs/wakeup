@@ -17,6 +17,6 @@ public class MainFragment extends BeamFragment<MainPragmentPresenter> {
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.fragment_main,container);
+        return inflater.inflate(R.layout.fragment_main,container,false);
     }
 }
