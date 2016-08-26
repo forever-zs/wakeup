@@ -6,11 +6,14 @@ import android.util.Log;
 
 import com.jude.beam.expansion.BeamBasePresenter;
 import com.wakeup.forever.wakeup.config.GlobalConstant;
+import com.wakeup.forever.wakeup.model.DataManager.UserCacheManager;
 import com.wakeup.forever.wakeup.model.DataManager.UserDataManager;
 import com.wakeup.forever.wakeup.model.bean.HttpResult;
 import com.wakeup.forever.wakeup.model.bean.User;
 import com.wakeup.forever.wakeup.utils.PrefUtils;
 import com.wakeup.forever.wakeup.view.activity.LoginActivity;
+
+import org.litepal.exceptions.DataSupportException;
 
 import rx.Subscriber;
 
@@ -25,7 +28,7 @@ public class LoginActivityPresenter extends BeamBasePresenter<LoginActivity> {
 
     public void login(String phone,String password){
         loginActivity.showProgressDialog();
-        UserDataManager userDataManager=UserDataManager.getInstance();
+        final UserDataManager userDataManager=UserDataManager.getInstance();
         userDataManager.login(phone, password, new Subscriber<HttpResult<User>>() {
             @Override
             public void onCompleted() {
@@ -44,6 +47,12 @@ public class LoginActivityPresenter extends BeamBasePresenter<LoginActivity> {
                     loginActivity.showSnackBar("登陆成功");
                     PrefUtils.setString(loginActivity, GlobalConstant.TOKEN,userHttpResult.getData().getToken());
                     Log.e("zs",userHttpResult.getData().getToken());
+                    try {
+                        UserCacheManager.saveUser(userHttpResult.getData());
+                    }
+                    catch (DataSupportException e){
+                        Log.e("zs",e.getMessage());
+                    }
                     loginActivity.loginSuccess();
                 }
                 else{

@@ -160,6 +160,10 @@
             android:id="@+id/tv_signature"
             android:text="一个比我帅的都没有"
             style="@style/UserCenterTvRight"
+            android:focusable="true"
+            android:ellipsize="marquee"
+            android:marqueeRepeatLimit="marquee_forever"
+            android:focusableInTouchMode="true"
             />
     </RelativeLayout>
 

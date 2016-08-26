@@ -82,20 +82,18 @@ public class HomeFragment extends BeamFragment<HomeFragmentPresenter> {
     @Override
     public void onStart() {
         super.onStart();
-        updateInfo=true;
+        updateInfo = true;
+        initView();
+        getPresenter().initData();
+
     }
 
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-        initView();
     }
 
     private void initView() {
-        if (updateInfo==true) {
-            getPresenter().initData();
-            updateInfo=false;
-        }
         civHead.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -122,7 +120,7 @@ public class HomeFragment extends BeamFragment<HomeFragmentPresenter> {
 
     public void showUserInfo(User user) {
         if (user.getHeadURL() != null) {
-            Glide.with(getContext())
+            Glide.with(getActivity())
                     .load(user.getHeadURL())
                     .error(R.drawable.head)
                     .crossFade()
@@ -133,12 +131,15 @@ public class HomeFragment extends BeamFragment<HomeFragmentPresenter> {
         }
     }
 
-    public void showSnackBar(String text){
-        SnackBarUtil.showText(llHome,text);
+    public void showSnackBar(String text) {
+        SnackBarUtil.showText(llHome, text);
     }
 
-    public void setHeadClickable(boolean flag){
-        civHead.setClickable(flag);
+    public void setHeadClickable(boolean flag) {
+        if (civHead != null) {
+            civHead.setClickable(flag);
+        }
+
     }
 
 }

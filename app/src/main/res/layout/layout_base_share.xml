@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/layout_base_share"
+    android:layout_width="match_parent"
+    android:layout_height="100dp"
+    android:orientation="vertical"
+    android:padding="12dp"
+    >
+   <ImageView
+       android:id="@+id/iv_imageDesc"
+       android:layout_width="100dp"
+       android:layout_height="80dp"
+       android:src="@drawable/head"
+       android:layout_margin="8dp"
+       android:layout_alignParentRight="true"
+       />
+
+    <TextView
+        android:id="@+id/tv_title"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:text="深入了解线程和线程池"
+        android:layout_marginTop="12dp"
+        android:layout_marginLeft="10dp"
+        android:textSize="20sp"
+        />
+
+    <ImageView
+        android:id="@+id/iv_viewed"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/viewed"
+        android:layout_alignParentBottom="true"
+        android:layout_marginLeft="15dp"
+        />
+    <TextView
+        android:id="@+id/tv_viewCount"
+        android:layout_width="wrap_content"
+        android:layout_height="18dp"
+        android:text="1827"
+        android:layout_alignParentBottom="true"
+        android:layout_toRightOf="@+id/iv_viewed"
+        android:layout_marginLeft="5dp"
+        ></TextView>
+
+    <ImageView
+        android:id="@+id/iv_favourite"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/favourite"
+        android:layout_alignParentBottom="true"
+        android:layout_toRightOf="@+id/tv_viewCount"
+        android:layout_marginLeft="20dp"
+        />
+
+    <TextView
+        android:id="@+id/tv_favouriteCount"
+        android:layout_width="wrap_content"
+        android:layout_height="18dp"
+        android:text="182"
+        android:layout_alignParentBottom="true"
+        android:layout_toRightOf="@+id/iv_favourite"
+        android:layout_marginLeft="5dp"
+        ></TextView>
+
+    <ImageView
+        android:id="@+id/iv_author"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/author"
+        android:layout_alignParentBottom="true"
+        android:layout_toRightOf="@+id/tv_favouriteCount"
+        android:layout_marginLeft="20dp"
+        />
+
+    <TextView
+        android:id="@+id/tv_author"
+        android:layout_width="wrap_content"
+        android:layout_height="18dp"
+        android:text="forever"
+        android:layout_alignParentBottom="true"
+        android:layout_toRightOf="@+id/iv_author"
+        android:layout_marginLeft="5dp"
+        ></TextView>
+</RelativeLayout>

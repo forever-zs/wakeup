@@ -110,8 +110,7 @@ public class RegisterActivity extends BeamBaseActivity<RegisterActivityPresenter
         tvLoginLink.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(RegisterActivity.this,LoginActivity.class));
-                finish();
+                jumpToLoginAty();
             }
         });
     }
@@ -136,6 +135,11 @@ public class RegisterActivity extends BeamBaseActivity<RegisterActivityPresenter
                 })
                 .setActionTextColor(getResources().getColor(R.color.mainColor))
                 .show();
+    }
+
+    public void jumpToLoginAty(){
+        startActivity(new Intent(RegisterActivity.this,LoginActivity.class));
+        finish();
     }
 
     public void showProgressDialog() {

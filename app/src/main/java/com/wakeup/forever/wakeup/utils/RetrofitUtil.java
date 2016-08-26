@@ -29,6 +29,16 @@ public class RetrofitUtil {
     }
 
     public static Retrofit getRetrofit(){
+        if(retrofit==null){
+            OkHttpClient okHttpClient = new OkHttpClient();
+            okHttpClient.setConnectTimeout(DEFAULT_TIMEOUT, TimeUnit.SECONDS);
+            retrofit = new Retrofit.Builder()
+                    .baseUrl(Api.BASEURL)
+                    .client(okHttpClient)
+                    .addConverterFactory(GsonConverterFactory.create())
+                    .addCallAdapterFactory(RxJavaCallAdapterFactory.create())
+                    .build();
+        }
         return retrofit;
     }
 }

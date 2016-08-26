@@ -1,7 +1,9 @@
 package com.wakeup.forever.wakeup.model.bean;
 
-public class User {
-    private String id;
+import org.litepal.crud.DataSupport;
+
+public class User extends DataSupport{
+    private int id;
     private String password;
     private String name;
     private String phone;
@@ -24,11 +26,11 @@ public class User {
         // TODO Auto-generated constructor stub
     }
 
-    public String getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(int id) {
         this.id = id;
     }
 

@@ -12,12 +12,17 @@ import com.squareup.okhttp.MediaType;
 import com.squareup.okhttp.RequestBody;
 import com.wakeup.forever.wakeup.base.BaseSubscriber;
 import com.wakeup.forever.wakeup.config.GlobalConstant;
+import com.wakeup.forever.wakeup.model.DataManager.UserCacheManager;
 import com.wakeup.forever.wakeup.model.DataManager.UserDataManager;
 import com.wakeup.forever.wakeup.model.bean.HttpResult;
 import com.wakeup.forever.wakeup.model.bean.User;
 import com.wakeup.forever.wakeup.utils.GetImageUtils;
+import com.wakeup.forever.wakeup.utils.ImageUtil;
+import com.wakeup.forever.wakeup.utils.LogUtil;
 import com.wakeup.forever.wakeup.utils.ToastUtil;
 import com.wakeup.forever.wakeup.view.fragment.UserCenterFragment;
+
+import org.litepal.crud.DataSupport;
 
 import java.io.File;
 import java.util.HashMap;
@@ -40,11 +45,26 @@ public class UserCenterFragmentPresenter extends BeamBasePresenter<UserCenterFra
     }
 
     public void initData(){
+        /*
+            从数据库里面拿到用户信息缓存
+         */
+        User user= UserCacheManager.getUser();
+        if(user!=null){
+            userCenterFragment.showUserInfo(user);
+            LogUtil.e("id:"+user.getId());
+        }
+
         UserDataManager.getInstance().getUserInfo(new BaseSubscriber<HttpResult<User>>(userCenterFragment.getActivity()) {
             @Override
             public void onSuccess(HttpResult<User> userHttpResult) {
                 if(userHttpResult.getResultCode()==200){
                     userCenterFragment.showUserInfo(userHttpResult.getData());
+                    if(DataSupport.findFirst(User.class)!=null){
+                        userHttpResult.getData().update(1);
+                    }
+                    else{
+                        userHttpResult.getData().saveThrows();
+                    }
                 }
                 else{
                     ToastUtil.showText("未知错误");
@@ -91,6 +111,7 @@ public class UserCenterFragmentPresenter extends BeamBasePresenter<UserCenterFra
 
     private void uploadHeadImage() {
         userCenterFragment.showProgressDialog();
+        tempFile=ImageUtil.saveBitmapFile(ImageUtil.getImage(tempFile.getAbsolutePath()));
         RequestBody imageHead=RequestBody.create(MediaType.parse("multipart/form-data"),tempFile);
         UserDataManager.getInstance().uploadHeadUrl(imageHead, new BaseSubscriber<HttpResult<User>>(userCenterFragment.getActivity()) {
             @Override

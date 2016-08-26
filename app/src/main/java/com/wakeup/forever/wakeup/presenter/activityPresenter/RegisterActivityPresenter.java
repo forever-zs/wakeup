@@ -8,6 +8,7 @@ import com.jude.beam.expansion.BeamBasePresenter;
 import com.wakeup.forever.wakeup.model.DataManager.UserDataManager;
 import com.wakeup.forever.wakeup.model.bean.HttpResult;
 import com.wakeup.forever.wakeup.model.bean.User;
+import com.wakeup.forever.wakeup.utils.ToastUtil;
 import com.wakeup.forever.wakeup.view.activity.RegisterActivity;
 
 import cn.smssdk.EventHandler;
@@ -104,7 +105,8 @@ public class RegisterActivityPresenter extends BeamBasePresenter<RegisterActivit
             @Override
             public void onNext(HttpResult<User> userHttpResult) {
                 if(userHttpResult.getResultCode()==200){
-                    registerActivity.showSnackBar("注册成功");
+                    ToastUtil.showText("注册成功");
+                    registerActivity.jumpToLoginAty();
                 }
                 else{
                     registerActivity.showSnackBar("该账号已被注册");

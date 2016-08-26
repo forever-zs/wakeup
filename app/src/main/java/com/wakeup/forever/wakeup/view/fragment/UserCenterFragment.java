@@ -80,6 +80,8 @@ public class UserCenterFragment extends BeamFragment<UserCenterFragmentPresenter
     //实时获取datePicker的值
     private Calendar calendar=Calendar.getInstance();
 
+    private SimpleDateFormat myFmt=new SimpleDateFormat("yyyy年MM月dd日");;
+
 
     public UserCenterFragment() {
         // Required empty public constructor
@@ -103,11 +105,16 @@ public class UserCenterFragment extends BeamFragment<UserCenterFragmentPresenter
     }
 
     @Override
+    public void onStart() {
+        super.onStart();
+        initView();
+        userCenterFragmentPresenter.initData();
+    }
+
+    @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
         userCenterFragmentPresenter = getPresenter();
-        userCenterFragmentPresenter.initData();
-        initView();
     }
 
     private void initView() {
@@ -204,11 +211,11 @@ public class UserCenterFragment extends BeamFragment<UserCenterFragmentPresenter
                                 if (message.isEmpty()) {
                                     showSnackBar(GlobalConstant.INPUT_EMPTY_MESSAGE);
                                 }
-                                else if(message.length()>30){
+                                else if(message.length()>20){
                                     showSnackBar("你的签名太长了，亲");
                                 }
                                 else {
-                                    tvCampus.setText(inputUserMessage.getText().toString());
+                                    tvSignature.setText(inputUserMessage.getText().toString());
                                     User user = new User();
                                     user.setSignature(inputUserMessage.getText().toString());
                                     userCenterFragmentPresenter.updateUserInfo(user);
@@ -240,6 +247,7 @@ public class UserCenterFragment extends BeamFragment<UserCenterFragmentPresenter
                                    showSnackBar("亲，请认真填写呀");
                                }
                                 else{
+                                   tvBirth.setText(myFmt.format(calendar.getTime()));
                                    User user=new User();
                                    user.setBirth(calendar.getTimeInMillis());
                                    userCenterFragmentPresenter.updateUserInfo(user);
@@ -274,7 +282,6 @@ public class UserCenterFragment extends BeamFragment<UserCenterFragmentPresenter
             tvSex.setText(user.getSex());
         }
         if (user.getBirth() != null) {
-            SimpleDateFormat myFmt = new SimpleDateFormat("yyyy年MM月dd日");
             tvBirth.setText(myFmt.format(new Date(user.getBirth())));
         }
         if (user.getSignature() != null) {
@@ -310,7 +317,7 @@ public class UserCenterFragment extends BeamFragment<UserCenterFragmentPresenter
     public void showProgressDialog() {
         progressDialog = new ProgressDialog(getContext(), R.style.AppTheme_Dark_Dialog);
         progressDialog.setIndeterminate(true);
-        progressDialog.setMessage("登陆中...");
+        progressDialog.setMessage("上传中...");
         progressDialog.show();
     }
 

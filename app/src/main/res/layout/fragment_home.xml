@@ -36,7 +36,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
-            android:text="请先点击头像登录"
+            android:text="还未设置昵称呢,亲"
             android:textSize="20sp"
             />
     </RelativeLayout>
