@@ -1,0 +1,168 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:id="@+id/ll_userCenter"
+    android:background="@color/bitGray"
+    tools:context="com.wakeup.forever.wakeup.view.fragment.UserCenterFragment">
+
+    <!-- TODO: Update blank fragment layout -->
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/toolbar_mian_height"
+        android:background="@color/colorPrimary"
+        android:visibility="gone">
+        <ImageView
+            android:id="@+id/iv_back"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:src="@drawable/back"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="12dp"
+            android:background="@null"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:text="个人中心"
+            android:textColor="@color/white"
+            android:layout_marginLeft="10dp"
+            android:textSize="19sp"
+            android:layout_toRightOf="@id/iv_back"/>
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/rl_headImage"
+        android:layout_height="180dp"
+        android:layout_width="match_parent"
+        android:background="@color/colorPrimary"
+        >
+
+        <com.wakeup.forever.wakeup.widget.CircleImageView
+            android:id="@+id/cim_head"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:src="@drawable/head"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="30dp"
+            />
+
+        <RelativeLayout
+            android:id="@+id/rl_name"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="15dp">
+            <TextView
+                android:id="@+id/tv_name"
+                android:text="forever"
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:textColor="@color/white"
+                android:textSize="20dp"
+                />
+        </RelativeLayout>
+    </RelativeLayout>
+
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/bitGray"
+        ></View>
+
+    <RelativeLayout
+        android:id="@+id/rl_birth"
+        style="@style/UserCenterLayout">
+        <TextView
+            style="@style/UserCenterTvLeft"
+            android:text="生日"
+            />
+
+        <TextView
+            android:id="@+id/tv_birth"
+            android:text="1995-11-14"
+            style="@style/UserCenterTvRight"
+            />
+    </RelativeLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/bitGray"
+        ></View>
+
+    <RelativeLayout
+        android:id="@+id/rl_sex"
+        style="@style/UserCenterLayout">
+        <TextView
+            android:text="性别"
+            style="@style/UserCenterTvLeft"
+            />
+
+        <TextView
+            android:id="@+id/tv_sex"
+            android:text="男"
+            style="@style/UserCenterTvRight"
+            />
+    </RelativeLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/bitGray"
+        ></View>
+
+    <RelativeLayout
+        android:id="@+id/rl_campus"
+        style="@style/UserCenterLayout">
+        <TextView
+            style="@style/UserCenterTvLeft"
+            android:text="所在校区"
+            />
+
+        <TextView
+            android:id="@+id/tv_campus"
+            android:text="独墅湖"
+            style="@style/UserCenterTvRight"
+            />
+    </RelativeLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/bitGray"
+        ></View>
+
+    <RelativeLayout
+        android:id="@+id/rl_signature"
+        style="@style/UserCenterLayout">
+        <TextView
+            style="@style/UserCenterTvLeft"
+            android:text="我的签名"
+            />
+
+        <TextView
+            android:id="@+id/tv_signature"
+            android:text="一个比我帅的都没有"
+            style="@style/UserCenterTvRight"
+            android:focusable="true"
+            android:ellipsize="marquee"
+            android:marqueeRepeatLimit="marquee_forever"
+            android:focusableInTouchMode="true"
+            />
+    </RelativeLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/bitGray"
+        ></View>
+
+
+</LinearLayout>

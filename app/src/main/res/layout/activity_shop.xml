@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_shop"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.wakeup.forever.wakeup.view.activity.ShopActivity">
+    <RelativeLayout
+        android:id="@+id/rl_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/grayBlue">
+
+        <TextView
+            android:id="@+id/tv_title"
+            android:layout_width="wrap_content"
+            android:layout_height="50dp"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:ellipsize="end"
+            android:gravity="center"
+            android:maxLines="1"
+            android:text="积分商城"
+            android:textColor="@android:color/background_light"
+            android:textSize="20sp" />
+    </RelativeLayout>
+
+
+    <ProgressBar
+        android:id="@+id/pb_load"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:max="100"
+        android:progress="0"
+        android:progressDrawable="@drawable/process_web_view" />
+    <WebView
+        android:id="@+id/wb_shopDisplay"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        >
+    </WebView>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:background="@drawable/button_2"
+        android:weightSum="1">
+
+
+        <TextView
+            android:id="@+id/tv_point"
+            android:layout_width="71dp"
+            android:layout_height="match_parent"
+            android:text="100积分"
+            android:gravity="center"
+            android:textSize="14sp"
+            >
+        </TextView>
+
+        <Button
+            android:id="@+id/btn_exchange"
+            android:layout_width="106dp"
+            android:layout_height="match_parent"
+            android:text="兑换"
+            android:textStyle="bold"
+            android:textSize="20dp"
+            android:background="#00000000"
+            android:layout_weight="0.71" />
+
+    </LinearLayout>
+</LinearLayout>

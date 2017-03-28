@@ -1,0 +1,290 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#f2f4f5"
+        android:padding="6dp">
+
+        <TextView
+            android:id="@+id/tv_weather"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="10dp"
+            android:text="苏州：多云"
+            android:textColor="#333333" />
+
+        <TextView
+            android:id="@+id/tv_tips"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:ellipsize="marquee"
+            android:focusable="true"
+            android:focusableInTouchMode="true"
+            android:marqueeRepeatLimit="marquee_forever"
+            android:singleLine="true" />
+
+        <TextView
+            android:id="@+id/tv_temperature"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="10dp"
+            android:text="实时温度：25℃"
+            android:textColor="#333333" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#f2f4f5">
+
+
+        <com.wakeup.forever.wakeup.widget.ColorArcProgressBar
+            android:id="@+id/cpb_signTime"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_centerHorizontal="true"
+            app:back_color="@color/bitGray"
+            app:back_width="5dp"
+            app:front_color1="@color/colorPrimary"
+            app:front_color2="#FF00FF7F"
+            app:front_color3="@color/colorPrimary"
+            app:front_width="10dp"
+            app:is_need_content="true"
+            app:is_need_title="true"
+            app:is_need_unit="true"
+            app:max_value="31"
+            app:string_title="本月签到天数为:"
+            app:string_unit="天"
+            app:total_engle="360"></com.wakeup.forever.wakeup.widget.ColorArcProgressBar>
+
+        <Button
+            android:id="@+id/btn_sign"
+            android:layout_width="260dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/cpb_signTime"
+            android:layout_centerHorizontal="true"
+            android:layout_margin="10dp"
+            android:background="@drawable/circle_rectangle"
+            android:drawableLeft="@drawable/sign_in2"
+            android:fontFamily="casual"
+            android:gravity="center"
+            android:paddingLeft="40dp"
+            android:paddingRight="32dp"
+            android:shadowColor="@color/mainColor"
+            android:text="我要签到"
+            android:textColor="@color/white"
+            android:textSize="15sp"></Button>
+
+        <RelativeLayout
+            android:id="@+id/rl_userInfo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/btn_sign"
+            android:layout_centerHorizontal="true"
+
+            >
+
+            <TextView
+                android:id="@+id/tv_userName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:drawableLeft="@drawable/name_sign"
+                android:drawablePadding="5dp"
+                android:gravity="center_vertical"
+                android:padding="10dp"
+                android:text="用戶名"
+                android:textColor="@color/white"
+                android:visibility="gone" />
+
+            <com.wakeup.forever.wakeup.widget.CircleImageView
+                android:id="@+id/civ_head"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="20dp"
+                android:layout_toRightOf="@+id/tv_userName"
+                android:src="@drawable/head"
+                android:visibility="gone" />
+
+            <TextView
+                android:id="@+id/tv_point"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="20dp"
+                android:layout_toRightOf="@+id/civ_head"
+                android:drawableLeft="@drawable/check"
+                android:drawablePadding="5dp"
+                android:gravity="center_vertical"
+                android:padding="10dp"
+                android:text="715积分"
+                android:textColor="@color/white"
+                android:visibility="gone" />
+
+
+        </RelativeLayout>
+
+        <com.wakeup.forever.wakeup.widget.WaveView3
+            android:id="@+id/wv_wave3"
+            android:layout_width="match_parent"
+            android:layout_height="15dp"
+            android:layout_below="@+id/rl_userInfo" />
+    </RelativeLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:background="@drawable/paperbg1"
+        >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_gravity="center_horizontal"
+            android:paddingBottom="0dp"
+            android:layout_weight="1"
+            >
+
+            <RelativeLayout
+                android:id="@+id/rl_signRecord"
+                style="@style/mainFragmentItemRelativeLayout"
+                android:layout_marginRight="0dp"
+                android:padding="2dp">
+
+                <ImageView
+                    android:id="@+id/tv_signRecordLogo"
+                    style="@style/mainFragmentItemImageView"
+                    android:src="@drawable/alarm_clock"
+                    />
+
+                <TextView
+                    android:id="@+id/tv_signRecord"
+                    style="@style/mainFragmentItemText"
+                    android:text="签到记录"
+                    ></TextView>
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/rl_lucky"
+                style="@style/mainFragmentItemRelativeLayout"
+                android:layout_marginRight="0dp"
+                >
+
+                <ImageView
+                    style="@style/mainFragmentItemImageView"
+                    android:src="@drawable/star"
+                    />
+
+                <TextView
+                    android:id="@+id/tv_lucky"
+                    style="@style/mainFragmentItemText"
+                    android:text="幸运转盘"
+                    ></TextView>
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/rl_rank"
+                style="@style/mainFragmentItemRelativeLayout">
+
+                <ImageView
+                    style="@style/mainFragmentItemImageView"
+                    android:src="@drawable/sun"
+
+                    />
+
+                <TextView
+                    android:id="@+id/tv_rank"
+                    style="@style/mainFragmentItemText"
+                    android:text="积分排行"></TextView>
+            </RelativeLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_weight="1"
+            >
+
+            <RelativeLayout
+                android:id="@+id/rl_robot"
+                style="@style/mainFragmentItemRelativeLayout"
+                android:layout_marginRight="0dp"
+                >
+
+                <ImageView
+                    style="@style/mainFragmentItemImageView"
+                    android:src="@drawable/ic_face"
+
+                    />
+
+                <TextView
+                    android:id="@+id/tv_robot"
+                    style="@style/mainFragmentItemText"
+                    android:text="早安床君"
+                    />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/rl_shop"
+                android:layout_marginRight="0dp"
+                style="@style/mainFragmentItemRelativeLayout">
+
+                <ImageView
+                    style="@style/mainFragmentItemImageView"
+                    android:src="@drawable/flag"
+
+                    />
+
+                <TextView
+                    android:id="@+id/tv_shop"
+                    style="@style/mainFragmentItemText"
+                    android:text="积分商城"
+                    ></TextView>
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/rl_morningMessage"
+                style="@style/mainFragmentItemRelativeLayout">
+
+                <ImageView
+                    style="@style/mainFragmentItemImageView"
+                    android:src="@drawable/write"
+
+                    />
+
+                <TextView
+                    android:id="@+id/tv_morningMessage"
+                    style="@style/mainFragmentItemText"
+                    android:text="早安心语"
+                    ></TextView>
+            </RelativeLayout>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+
+
+
+
+
+
+</LinearLayout>
+

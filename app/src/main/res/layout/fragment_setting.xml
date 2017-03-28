@@ -1,0 +1,223 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/page_bg"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:id="@+id/rl_title"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/toolbar_mian_height"
+        android:background="@color/colorPrimary">
+
+        <ImageButton
+            android:id="@+id/ib_back"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/ib_margin_left"
+            android:background="@null"
+            android:src="@drawable/back" />
+
+        <TextView
+            android:id="@+id/tv_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="10dp"
+            android:layout_toRightOf="@id/ib_back"
+            android:text="设置"
+            android:textColor="@color/white"
+            android:textSize="@dimen/title_text_size" />
+    </RelativeLayout>
+
+    <View
+        android:layout_width="wrap_content"
+        android:layout_height="1dp"
+        android:background="@color/divider" />
+
+    <RelativeLayout
+        android:id="@+id/rl_update_password"
+        style="@style/setting_item"
+        android:layout_marginTop="15dp">
+
+        <View
+            android:layout_width="wrap_content"
+            android:layout_height="1px"
+            android:background="@color/divider" />
+
+        <TextView
+            style="@style/setting_item_text"
+            android:text="修改密码" />
+
+    </RelativeLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/divider" />
+
+    <RelativeLayout
+        android:id="@+id/rl_update"
+        style="@style/setting_item"
+        android:layout_marginTop="15dp">
+
+        <View
+            android:layout_width="wrap_content"
+            android:layout_height="1px"
+            android:background="@color/divider" />
+
+        <TextView
+            style="@style/setting_item_text"
+            android:text="检查更新" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="@dimen/item_margin_right"
+            android:text="V1.1.3"
+            android:textColor="@color/gray" />
+
+
+    </RelativeLayout>
+
+    <View
+        android:layout_width="wrap_content"
+        android:layout_height="1px"
+        android:background="@color/divider" />
+
+    <RelativeLayout
+        android:id="@+id/rl_clearCache"
+        style="@style/setting_item">
+
+        <TextView
+            style="@style/setting_item_text"
+            android:text="清除缓存" />
+
+        <TextView
+            android:id="@+id/tv_cache"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="@dimen/item_margin_right"
+            android:text="4.00KB"
+            android:textColor="@color/gray" />
+
+    </RelativeLayout>
+
+    <View
+        android:layout_width="wrap_content"
+        android:layout_height="1px"
+        android:background="@color/divider" />
+
+    <RelativeLayout
+        android:id="@+id/rl_auto_update"
+        style="@style/setting_item">
+
+        <TextView
+            style="@style/setting_item_text"
+            android:text="WIFI自动更新" />
+
+        <android.support.v7.widget.SwitchCompat
+            android:id="@+id/switch_wifi_auto"
+            style="@style/setting_switch"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:clickable="true"
+            android:focusable="true" />
+
+    </RelativeLayout>
+
+    <View
+        android:layout_width="wrap_content"
+        android:layout_height="1px"
+        android:background="@color/divider" />
+
+    <RelativeLayout style="@style/setting_item">
+
+        <TextView
+            style="@style/setting_item_text"
+            android:text="向我推送好文章" />
+
+        <android.support.v7.widget.SwitchCompat
+            style="@style/setting_switch"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:clickable="true"
+            android:focusable="true" />
+
+    </RelativeLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/divider" />
+
+    <RelativeLayout
+        android:id="@+id/rl_feedback"
+        style="@style/setting_item"
+        android:layout_marginTop="15dp">
+
+        <TextView
+            style="@style/setting_item_text"
+            android:text="用户反馈" />
+
+    </RelativeLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:background="@color/divider" />
+
+    <RelativeLayout
+        android:id="@+id/rl_star"
+        style="@style/setting_item">
+
+        <View
+            android:layout_width="wrap_content"
+            android:layout_height="1px"
+            android:background="@color/divider" />
+
+        <TextView
+            style="@style/setting_item_text"
+            android:text="为我们评分" />
+
+    </RelativeLayout>
+
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/divider" />
+
+    <RelativeLayout
+        android:id="@+id/rl_login_out"
+        style="@style/setting_item"
+        android:layout_marginTop="15dp">
+
+        <View
+            android:layout_width="wrap_content"
+            android:layout_height="1px"
+            android:background="@color/divider" />
+
+        <TextView
+            style="@style/setting_item_text"
+            android:layout_centerHorizontal="true"
+            android:text="退出登录"
+            android:textColor="@color/red" />
+
+    </RelativeLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/divider" />
+
+</LinearLayout>
+
+
+

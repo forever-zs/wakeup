@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/rl_baseShare"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="8dp"
+    >
+    <RelativeLayout
+        android:id="@+id/rl_commonShareHeader"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:padding="8dp"
+        >
+        <com.wakeup.forever.wakeup.widget.CircleImageView
+            android:id="@+id/civ_authorImage"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:src="@drawable/head"
+            />
+        <TextView
+            android:id="@+id/tv_authorName"
+            android:layout_width="wrap_content"
+            android:layout_height="20dp"
+            android:layout_alignTop="@+id/civ_authorImage"
+            android:text="土豆哥是一個很厲害的名字"
+            android:layout_toRightOf="@+id/civ_authorImage"
+            android:layout_marginLeft="20dp"
+            android:singleLine="true"
+            android:textSize="15sp"
+            />
+        <TextView
+            android:id="@+id/tv_publishTime"
+            android:layout_width="wrap_content"
+            android:layout_height="20dp"
+            android:layout_below="@+id/tv_authorName"
+            android:text="今天20:59"
+            android:layout_alignLeft="@+id/tv_authorName"
+            android:layout_marginTop="5dp"
+            />
+
+    </RelativeLayout>
+
+
+    <LinearLayout
+        android:id="@+id/ll_content"
+        android:padding="5dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+        <TextView
+            android:id="@+id/tv_content"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="苟利國家生死以，其因禍福避趨之"
+            />
+        <ImageView
+            android:id="@+id/iv_imageDesc"
+            android:layout_marginTop="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/timg"
+            />
+    </LinearLayout>
+
+    <RelativeLayout
+        android:id="@+id/fl_shareComment"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="5dp">
+
+        <ImageView
+            android:id="@+id/iv_shareViewed"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="10dp"
+            android:src="@drawable/viewed" />
+
+        <TextView
+            android:id="@+id/tv_shareViewedCount"
+            android:layout_width="wrap_content"
+            android:layout_height="20dp"
+            android:layout_alignTop="@+id/iv_shareViewed"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="5dp"
+            android:layout_toRightOf="@+id/iv_shareViewed"
+            android:text="125"
+            android:textSize="15sp" />
+
+        <ImageView
+            android:id="@+id/iv_shareLiked"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_centerVertical="true"
+            android:src="@drawable/favourite"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="30dp"/>
+
+        <ImageView
+            android:id="@+id/iv_comment"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_centerVertical="true"
+            android:src="@drawable/comment"
+            android:layout_alignParentRight="true"/>
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/rl_tv_likeUser"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="5dp">
+
+        <ImageView
+            android:id="@+id/iv_love"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/favourite"
+            />
+        <TextView
+            android:id="@+id/tv_likeUser"
+            android:layout_marginLeft="25dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="forever，石石石石石頭，圖樣圖升破，帥到沒朋友，我就是這麽叼，你們啊還是要學習等人覺得很贊"
+            android:lineSpacingExtra="2dp"
+            android:drawablePadding="5dp" />
+    </RelativeLayout>
+
+    <LinearLayout
+        android:id="@+id/ll_comment"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="5dp"
+        ></LinearLayout>
+
+
+
+</LinearLayout>

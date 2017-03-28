@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<android.support.v4.widget.DrawerLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/drawer_layout"
+    >
+
+    <android.support.design.widget.CoordinatorLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <FrameLayout
+                android:id="@+id/fl_main"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="@dimen/toolbar_mian_height"
+                >
+
+        </FrameLayout>
+
+        <android.support.v7.widget.Toolbar
+            app:title=""
+            android:id="@id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/toolbar_mian_height"
+            android:background="@color/colorPrimary"
+            app:popupTheme="@style/AlertDialog.AppCompat.Light">
+
+            <HorizontalScrollView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:id="@+id/selectGroup">
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent">
+                    <RadioGroup
+                        android:id="@+id/rg_menuList"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:gravity="center"
+                        android:orientation="horizontal"
+                        app:layout_behavior="@string/bye_burger_bottom_behavior">
+                        <RadioButton
+                            android:id="@+id/rb_main"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_marginLeft="15dp"
+                            android:layout_marginRight="15dp"
+                            android:button="@null"
+                            android:drawableTop="@drawable/sign_bar_selecter"
+
+                            android:gravity="center"
+                            android:singleLine="true"
+                            android:textSize="0px" />
+
+                        <RadioButton
+                            android:id="@+id/rb_update"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:button="@null"
+                            android:drawableTop="@drawable/circle_bar_selecter"
+                            android:gravity="center"
+                            android:textSize="0px"
+                            android:layout_marginLeft="15dp"
+                            android:layout_marginRight="15dp"/>
+
+                        <RadioButton
+                            android:id="@+id/rb_home"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:button="@null"
+                            android:drawableTop="@drawable/home_bar_selecter"
+                            android:gravity="center"
+                            android:textSize="0px"
+                            android:layout_marginLeft="15dp"
+                            android:layout_marginRight="15dp"/>
+                    </RadioGroup>
+                </LinearLayout>
+            </HorizontalScrollView>
+
+        </android.support.v7.widget.Toolbar>
+
+    </android.support.design.widget.CoordinatorLayout>
+
+    <android.support.design.widget.NavigationView
+        android:id="@+id/nav_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="start"
+        app:menu="@menu/nav_menu"
+        app:headerLayout="@layout/nav_header"
+        />
+
+</android.support.v4.widget.DrawerLayout>

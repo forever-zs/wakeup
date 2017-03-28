@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/layout_editText"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="8dp"
+    android:weightSum="1">
+    <com.wakeup.forever.wakeup.widget.CircleImageView
+        android:layout_width="71dp"
+        android:layout_height="78dp"
+        android:src="@drawable/head"
+        android:layout_margin="10dp"
+        android:layout_gravity="center_horizontal" />
+    <!--<RadioGroup-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content">-->
+
+        <!--<RadioButton-->
+            <!--android:id="@+id/rb_shake"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:text="摇一摇签到"-->
+            <!--/>-->
+        <!--<RadioButton-->
+            <!--android:id="@+id/rb_calculate"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:text="人脸识别签到"-->
+            <!--/>-->
+    <!--</RadioGroup>-->
+
+
+    <LinearLayout
+        android:id="@+id/ll_shake"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:background="@drawable/shape_circle_button"
+        android:clickable="true"
+        >
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:layout_margin="10dp"
+            android:textSize="15dp"
+            android:text="摇一摇签到"
+            />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/ll_calculate"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:background="@drawable/shape_circle_button"
+        android:clickable="true"
+        >
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:layout_margin="10dp"
+            android:textSize="15dp"
+            android:text="算一算签到"
+            />
+    </LinearLayout>
+    <LinearLayout
+        android:id="@+id/ll_smile"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:background="@drawable/shape_circle_button"
+        android:clickable="true"
+        >
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:layout_margin="10dp"
+            android:textSize="15dp"
+            android:text="笑一笑签到"
+            />
+    </LinearLayout>
+</LinearLayout>

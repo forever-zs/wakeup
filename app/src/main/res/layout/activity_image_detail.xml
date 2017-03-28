@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.wakeup.forever.wakeup.view.activity.ImageDetailActivity">
+
+    <com.wakeup.forever.wakeup.widget.FixMultiViewPager
+        android:id="@+id/fvp_imagePager"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"></com.wakeup.forever.wakeup.widget.FixMultiViewPager>
+</RelativeLayout>

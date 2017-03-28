@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#FF1E90FF</color>
+    <color name="colorPrimaryDark">#FF1E90FF</color>
+    <color name="colorAccent">#FF1E90FF</color>
+    <color name="red">#ff0303</color>
+
+    <color name="white">#ffffff</color>
+    <color name="gray">#cccccc</color>
+    <color name="bitGray">#eeeeee</color>
+    <color name="Aqua">#77D0DE</color>
+    <color name="mainColor">#FF1E90FF</color>
+    <color name="black">#000000</color>
+    <color name="grayBlue">#3F51B5</color>
+    <color name="backgroud">#CCFFFF</color>
+    <color name="circleButtonColor">#CAE1FF</color>
+    <color name="trmainColor">#772196F3</color>
+    <color name="transparent">#00000000</color>
+    <color name="bitRed">#ff6666</color>
+    <color name="purple">#691b4f</color>
+    <color name="bitGreen">#ADEBF6</color>
+    <color name="deepYellow">#FFC362</color>
+    <color name="page_bg">#f5f7f8</color>
+    <color name="divider">#e7e7e7</color>
+    <color name="blacktra">#0a000000</color>
+    <color name="waterblue">#6495ed</color>
+    <color name="watergreen">#FF00FF7F</color>
+</resources>
