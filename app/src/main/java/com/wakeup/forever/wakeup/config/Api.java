@@ -11,4 +11,6 @@ public class Api {
 
     public static String WEATHER_URL = "http://wthrcdn.etouch.cn/";
 
+    public static String LESSON_URL = "42.244.42.160";
+
 }

@@ -2,12 +2,15 @@ package com.wakeup.forever.wakeup.view.fragment;
 
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.Fragment;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.TypedValue;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -60,6 +63,8 @@ public class CommonShareFragment extends BeamFragment<CommonShareFragmentPresent
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_common_share, container, false);
         ButterKnife.bind(this, view);
+        getPresenter().refreshData();
+        srlRefreshCommonShare.setColorSchemeResources(R.color.mainColor);
         return view;
     }
 
@@ -134,5 +139,22 @@ public class CommonShareFragment extends BeamFragment<CommonShareFragmentPresent
 
     public void showSnackBar(String text){
         SnackBarUtil.showText(flCommonShare,text);
+    }
+    public void autoRefresh()
+    {
+        srlRefreshCommonShare.post(new Runnable() {
+            @Override
+            public void run() {
+                srlRefreshCommonShare.setRefreshing(true);
+            }
+        });
+        final Handler handler = new Handler();
+        handler.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                srlRefreshCommonShare.setRefreshing(false);
+                getPresenter().refreshData();
+            }
+        }, 1000);
     }
 }

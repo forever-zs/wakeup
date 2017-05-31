@@ -25,15 +25,15 @@ public class GetImageFragmentUtil{
     private Fragment mActivity;
     private ImageView img;
     private File tempFile;
-    private String[] items = {"拍照", "相册"};
-    private String title = "选择照片";
+    private String[] items = {"更换头像"};
+    private String title = "操作";
     private DialogInterface.OnClickListener dialogListener = new DialogInterface.OnClickListener() {
         @Override
         public void onClick(DialogInterface dialog, int which) {
             switch (which) {
                 case 0:
                     // 调用拍照
-                    startCamera(dialog);
+                    startPick(dialog);
                     break;
                 case 1:
                     // 调用相册

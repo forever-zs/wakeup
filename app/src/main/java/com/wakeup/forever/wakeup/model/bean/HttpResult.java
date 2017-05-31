@@ -8,6 +8,8 @@ public class HttpResult <T> {
 
     private String message;
 
+    private int state;
+
     private T data;
 
     public int getResultCode() {
@@ -16,6 +18,14 @@ public class HttpResult <T> {
 
     public void setResultCode(int resultCode) {
         this.resultCode = resultCode;
+    }
+
+    public int getState() {
+        return state;
+    }
+
+    public void setState(int resultCode) {
+        this.state = state;
     }
 
     public String getMessage() {

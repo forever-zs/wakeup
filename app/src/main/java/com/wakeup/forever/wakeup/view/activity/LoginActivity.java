@@ -89,7 +89,7 @@ public class LoginActivity extends BaseActivity<LoginActivityPresenter> {
     public void showProgressDialog() {
         progressDialog = new ProgressDialog(this, R.style.AppTheme_Dark_Dialog);
         progressDialog.setIndeterminate(true);
-        progressDialog.setMessage("登陆中...");
+        progressDialog.setMessage("登录中...");
         progressDialog.show();
     }
 

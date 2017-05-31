@@ -230,14 +230,14 @@
 
                 <ImageView
                     style="@style/mainFragmentItemImageView"
-                    android:src="@drawable/ic_face"
+                    android:src="@drawable/ic_today"
 
                     />
 
                 <TextView
                     android:id="@+id/tv_robot"
                     style="@style/mainFragmentItemText"
-                    android:text="早安床君"
+                    android:text="我的课程"
                     />
             </RelativeLayout>
 

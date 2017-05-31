@@ -2,6 +2,7 @@ package com.wakeup.forever.wakeup.view.fragment;
 
 
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.v4.app.Fragment;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.LinearLayoutManager;
@@ -54,6 +55,8 @@ public class AllPointRankFragment extends BeamFragment<AllPointRankFragmentPrese
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_all_point_rank, container, false);
         ButterKnife.bind(this, view);
+        getPresenter().refreshData();
+        srlRefresh.setColorSchemeResources(R.color.mainColor);
         return view;
     }
 

@@ -1,6 +1,7 @@
 package com.wakeup.forever.wakeup.view.fragment;
 
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -41,8 +42,9 @@ public class MonthPointRankFragment extends BeamFragment<MonthPointRankFragmentP
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_month_point_rank, container, false);
         ButterKnife.bind(this, view);
+        getPresenter().refreshData();
+        srlRefresh.setColorSchemeResources(R.color.mainColor);
         return view;
-
     }
 
 
@@ -113,6 +115,5 @@ public class MonthPointRankFragment extends BeamFragment<MonthPointRankFragmentP
     public void stopRefresh(){
         srlRefresh.setRefreshing(false);
     }
-
 
 }

@@ -1,13 +1,19 @@
 package com.wakeup.forever.wakeup.view.activity;
 
+import android.Manifest;
 import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.os.Environment;
+import android.os.Message;
 import android.support.annotation.NonNull;
 import android.support.design.widget.NavigationView;
+import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
+import android.support.v4.content.ContextCompat;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBar;
@@ -19,6 +25,7 @@ import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
+import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.jude.beam.bijection.RequiresPresenter;
@@ -32,11 +39,14 @@ import com.wakeup.forever.wakeup.utils.LogUtil;
 import com.wakeup.forever.wakeup.utils.ToastUtil;
 import com.wakeup.forever.wakeup.view.fragment.MainFragment;
 import com.wakeup.forever.wakeup.view.fragment.UpdateFragment;
+import com.wakeup.forever.wakeup.view.fragment.CommonShareFragment;
 import com.wakeup.forever.wakeup.widget.CircleImageView;
 import com.wakeup.forever.wakeup.view.fragment.UserCenterFragment;
 
 import java.io.File;
 import java.util.Date;
+import java.util.logging.Handler;
+import java.util.logging.LogRecord;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
@@ -58,11 +68,12 @@ public class MainActivity extends BaseActivity<MainActivityPresenter> {
 
     private FragmentManager fragmentManager;
     private MainFragment mainFragment;
-    private UpdateFragment updateFragment;
+    private CommonShareFragment commonShareFragment;
     private DrawerLayout mDrawerLayout;
     private long lastPressBackTime;
     private CircleImageView ivHeadImage;
     private UserCenterFragment userCenterFragment;
+    public static final int UPDATE_TEXT = 1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -127,12 +138,12 @@ public class MainActivity extends BaseActivity<MainActivityPresenter> {
         rbMain.setChecked(true);
         //初始化fragment
         mainFragment=new MainFragment();
-        updateFragment=new UpdateFragment();
+        commonShareFragment=new CommonShareFragment();
         userCenterFragment = new UserCenterFragment();
 
         FragmentTransaction transaction=fragmentManager.beginTransaction();
         transaction.add(R.id.fl_main,mainFragment);
-        transaction.add(R.id.fl_main,updateFragment);
+        transaction.add(R.id.fl_main,commonShareFragment);
         //transaction.add(R.id.fl_main,homeFragment);
         transaction.add(R.id.fl_main,userCenterFragment);
         hideAll(transaction);
@@ -151,7 +162,8 @@ public class MainActivity extends BaseActivity<MainActivityPresenter> {
                     transaction.show(userCenterFragment);
                 }
                 else{
-                    transaction.show(updateFragment);
+                    transaction.show(commonShareFragment);
+                    commonShareFragment.autoRefresh();
                 }
                 transaction.commit();
             }
@@ -160,7 +172,7 @@ public class MainActivity extends BaseActivity<MainActivityPresenter> {
 
     public void hideAll(FragmentTransaction transaction){
         transaction.hide(mainFragment);
-        transaction.hide(updateFragment);
+        transaction.hide(commonShareFragment);
         transaction.hide(userCenterFragment);
     }
 
@@ -181,8 +193,8 @@ public class MainActivity extends BaseActivity<MainActivityPresenter> {
         if(mainFragment==null&&fragment instanceof MainFragment){
             mainFragment= (MainFragment) fragment;
         }
-        else if(updateFragment==null&&fragment instanceof UpdateFragment){
-            updateFragment= (UpdateFragment) fragment;
+        else if(commonShareFragment==null&&fragment instanceof CommonShareFragment){
+            commonShareFragment= (CommonShareFragment) fragment;
         }
         else if(userCenterFragment==null&&fragment instanceof UserCenterFragment){
             userCenterFragment = (UserCenterFragment) fragment;
@@ -200,6 +212,14 @@ public class MainActivity extends BaseActivity<MainActivityPresenter> {
         if(!file.exists()){
             file.mkdir();
         }
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                Message message = new Message();
+                message.what = UPDATE_TEXT;
+                handler.sendMessage(message);
+            }
+        }).start();
     }
 
     public boolean onCreateOptionsMenu(Menu menu){
@@ -226,4 +246,18 @@ public class MainActivity extends BaseActivity<MainActivityPresenter> {
                 .crossFade()
                 .into(ivHeadImage);
     }
+
+    public android.os.Handler handler = new android.os.Handler() {
+        public void handleMessage(Message msg){
+            switch (msg.what){
+                case UPDATE_TEXT:
+                    TextView username = (TextView) findViewById(R.id.nav_username);
+                    TextView name = (TextView) findViewById(R.id.tv_name);
+                    username.setText(name.getText());
+                    break;
+                default:
+                    break;
+            }
+        }
+    };
 }

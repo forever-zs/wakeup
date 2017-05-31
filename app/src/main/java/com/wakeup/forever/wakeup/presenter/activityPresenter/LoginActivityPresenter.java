@@ -41,7 +41,7 @@ public class LoginActivityPresenter extends BeamBasePresenter<LoginActivity> {
             public void onNext(HttpResult<User> userHttpResult) {
                 loginActivity.dismissProgressDialog();
                 if (userHttpResult.getResultCode() == 200) {
-                    loginActivity.showSnackBar("登陆成功");
+                    loginActivity.showSnackBar("登录成功");
                     PrefUtils.setString(loginActivity, GlobalConstant.TOKEN, userHttpResult.getData().getToken());
                     UserCacheManager.getInstance(getView()).saveUser(userHttpResult.getData());
                     loginActivity.loginSuccess();

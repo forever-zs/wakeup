@@ -13,6 +13,7 @@ import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
 import android.hardware.SensorManager;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.Environment;
 import android.os.Vibrator;
@@ -21,11 +22,13 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
+import android.support.v4.content.FileProvider;
 import android.support.v7.app.AlertDialog;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
+import android.webkit.MimeTypeMap;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -46,7 +49,9 @@ import com.wakeup.forever.wakeup.utils.LogUtil;
 import com.wakeup.forever.wakeup.utils.ToastUtil;
 import com.wakeup.forever.wakeup.utils.UiUtil;
 import com.wakeup.forever.wakeup.view.activity.CalendarActivity;
+import com.wakeup.forever.wakeup.view.activity.GoodMorningActivity;
 import com.wakeup.forever.wakeup.view.activity.LuckyActivity;
+import com.wakeup.forever.wakeup.view.activity.MainActivity;
 import com.wakeup.forever.wakeup.view.activity.PointRankActivity;
 import com.wakeup.forever.wakeup.view.activity.PointShopActivity;
 import com.wakeup.forever.wakeup.widget.CircleImageView;
@@ -156,14 +161,15 @@ public class MainFragment extends BeamFragment<MainFragmentPresenter> {
         rlMorningMessage.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
-                ToastUtil.showText("敬请期待");
+                Intent intent = new Intent(getActivity(), GoodMorningActivity.class);
+                startActivity(intent);
             }
         });
 
         rlRobot.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
-                ToastUtil.showText("敬请期待");
+
             }
         });
 
@@ -203,7 +209,7 @@ public class MainFragment extends BeamFragment<MainFragmentPresenter> {
         btnSign.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
-                showSignChoiceDialog();
+                showCalculateDialog();
             }
         });
 
@@ -296,11 +302,26 @@ public class MainFragment extends BeamFragment<MainFragmentPresenter> {
     }
 
     public void startInstall(File mFile) {
+        Context context=this.getActivity();
+        /*Intent install = new Intent(Intent.ACTION_VIEW);
+        install.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        install.setDataAndType(Uri.fromFile(mFile), "application/vnd.android.package-archive");
+
+        startActivity(install);
+        android.os.Process.killProcess(android.os.Process.myPid());*/
         Intent install = new Intent();
         install.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
         install.setAction(Intent.ACTION_VIEW);
-        install.setDataAndType(Uri.fromFile(mFile), "application/vnd.android.package-archive");
-
+        if(Build.VERSION.SDK_INT>= Build.VERSION_CODES.N)
+        {
+            Uri uriForFile = FileProvider.getUriForFile(context, context.getApplicationContext().getPackageName() + ".provider", mFile);
+            install.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
+            install.setDataAndType(uriForFile, context.getContentResolver().getType(uriForFile));
+        }
+        else
+        {
+            install.setDataAndType(Uri.fromFile(mFile), "application/vnd.android.package-archive");
+        }
         startActivity(install);
     }
 
@@ -359,6 +380,7 @@ public class MainFragment extends BeamFragment<MainFragmentPresenter> {
         Random random = new Random();
         final int x = random.nextInt(10);
         final int y = random.nextInt(10);
+        final int z = random.nextInt(100);
         AlertDialog dialog = new AlertDialog.Builder(getContext())
                 .setView(R.layout.dialog_calculate)
                 .setCancelable(false)
@@ -373,11 +395,16 @@ public class MainFragment extends BeamFragment<MainFragmentPresenter> {
                     public void onClick(DialogInterface dialog, int which) {
                         try {
                             int result = Integer.parseInt(inputMessage.getText().toString());
-                            if (x * y == result) {
+                            if (x * y == result && z % 2 == 1) {
                                 dialog.dismiss();
                                 getPresenter().signIn();
-                            } else {
-                                ToastUtil.showText("你答错了，亲");
+                            }
+                            if ((x * y + 1) == result && z % 2 == 0) {
+                                dialog.dismiss();
+                                getPresenter().signIn();
+                            }
+                            else {
+                                ToastUtil.showText("看来你还没睡醒呢╰（‵□′）╯");
                             }
                         } catch (Exception e) {
                             ToastUtil.showText("请认真填写哦，亲");
@@ -388,7 +415,12 @@ public class MainFragment extends BeamFragment<MainFragmentPresenter> {
         dialog.show();
         mathMessage = (TextView) dialog.findViewById(R.id.tv_math);
         inputMessage = (EditText) dialog.findViewById(R.id.input_userMessage);
-        mathMessage.setText(x + "*" + y + "=");
+        if (z % 2 == 1)
+        {mathMessage.setText(x + "×" + y + "+Sin("+z+"π)"+"=");}
+        else
+        {
+            mathMessage.setText(x + "×" + y + "+Cos("+z+"π)"+"=");
+        }
     }
 
     public void showSignChoiceDialog() {
@@ -646,5 +678,13 @@ public class MainFragment extends BeamFragment<MainFragmentPresenter> {
     public void onGetWeatherInfo(Weather weather) {
         tvWeather.setText("苏州：" + weather.getData().getForecast().get(0).getType());
         tvTemperature.setText("实时温度：" + weather.getData().getWendu() + "℃");
+    }
+
+    public String getMIMEType(File var0) {
+        String var1 = "";
+        String var2 = var0.getName();
+        String var3 = var2.substring(var2.lastIndexOf(".") + 1, var2.length()).toLowerCase();
+        var1 = MimeTypeMap.getSingleton().getMimeTypeFromExtension(var3);
+        return var1;
     }
 }

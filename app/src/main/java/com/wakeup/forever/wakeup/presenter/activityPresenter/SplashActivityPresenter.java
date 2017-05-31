@@ -54,8 +54,8 @@ public class SplashActivityPresenter extends Presenter<SplashActivity>{
     }
 
     public void startAnim(){
-        AlphaAnimation alpha=new AlphaAnimation(0f,1f);
-        alpha.setDuration(2000);
+        AlphaAnimation alpha=new AlphaAnimation(1f,0f);
+        alpha.setDuration(500);
         splashActivity.ivWakeup.startAnimation(alpha);
         alpha.setAnimationListener(new Animation.AnimationListener() {
             @Override
@@ -88,11 +88,11 @@ public class SplashActivityPresenter extends Presenter<SplashActivity>{
         AnimationSet set=new AnimationSet(false);
         ScaleAnimation scaleAnimation=new ScaleAnimation(0.95f,1f,0.95f,1f,Animation.RELATIVE_TO_SELF, 0.5f,
                 Animation.RELATIVE_TO_SELF, 0.5f);
-        AlphaAnimation alphaAnimation=new AlphaAnimation(0.5f,1f);
+        AlphaAnimation alphaAnimation=new AlphaAnimation(1f,1f);
         //设置动画时间
         scaleAnimation.setDuration(1000);
         scaleAnimation.setFillAfter(false);
-        alphaAnimation.setDuration(1500);
+        alphaAnimation.setDuration(2500);
         //添加动画
         set.addAnimation(alphaAnimation);
 

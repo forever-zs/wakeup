@@ -1,15 +1,15 @@
 apply plugin: 'com.android.application'
 
 android {
-    compileSdkVersion 25
+    compileSdkVersion 24
     buildToolsVersion "25.0.0"
 
     defaultConfig {
         applicationId "com.wakeup.forever.wakeup"
         minSdkVersion 16
         targetSdkVersion 24
-        versionCode 13
-        versionName "1.1.4"
+        versionCode 15
+        versionName "1.2.1"
         ndk {
             abiFilters "armeabi", "armeabi-v7a", "x86", "mips"
         }
@@ -49,31 +49,46 @@ repositories {
 }
 
 
+
+
+
 dependencies {
     compile fileTree(include: ['*.jar'], dir: 'libs')
     compile project(':PushSDK')
     //mvp框架
+
     //网络请求框架
+
     //响应式编程框架
+
     //注解框架
 
     //图片加载框架
+
     //数据库框架
 
     //RecycleView顯示框架
 
     //recycleView的分割綫框架
+
     //bilibili第三方分享
+
     //compile 'com.squareup.okhttp:okhttp:2.4.0'
+
     //compile 'com.jude:beam:3.0.1'
+
     //权限申请框架
+
     //photoView
+
     //calendarView
+
     // 此处以SDK 2.1.8版本为例
 
     //动态图片加载框架
 
     //滑动隐藏框架
+
     // 二维码框架
     compile files('src/main/libs/ormlite-android-5.0.jar')
     compile files('src/main/libs/ormlite-core-5.0.jar')
@@ -118,6 +133,6 @@ dependencies {
     compile 'com.github.githubwing:ByeBurger:1.1.0'
     compile 'cn.yipianfengye.android:zxing-library:1.9'
     compile 'com.umeng.analytics:analytics:latest.integration'
-    compile 'com.android.support.constraint:constraint-layout:+'
+    compile 'com.android.support.constraint:constraint-layout:1.0.2'
     testCompile 'junit:junit:4.12'
 }
